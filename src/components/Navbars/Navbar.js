@@ -18,27 +18,36 @@ import Button from "components/CustomButtons/Button.js";
 import { useRouteName } from "hooks";
 
 import styles from "assets/jss/material-dashboard-react/components/headerStyle.js";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(styles);
 
 export default function Header(props) {
   const classes = useStyles();
-  const routeName = useRouteName();
+  // const routeName = useRouteName();
   const { color } = props;
   const appBarClasses = classNames({
     [" " + classes[color]]: color,
   });
+  const matches = useMediaQuery("(min-width:600px)");
+
   return (
     <AppBar className={classes.appBar + appBarClasses}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}
           <Button color="transparent" href="#" className={classes.title}>
-            {routeName}
+            {/* {routeName} */}
+            <Typography
+              className={matches ? classes.fontSize3Rem : classes.fontSize1Rem}
+            >
+              Equipment Troubleshooting
+            </Typography>
           </Button>
         </div>
         <Hidden smDown implementation="css">
-          {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
+          <AdminNavbarLinks />
         </Hidden>
         <Hidden mdUp implementation="css">
           <IconButton

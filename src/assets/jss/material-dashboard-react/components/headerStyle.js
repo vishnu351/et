@@ -36,6 +36,12 @@ const headerStyle = () => ({
   flex: {
     flex: 1,
   },
+  fontSize2Rem: {
+    fontSize: "2rem",
+  },
+  fontSize1Rem: {
+    fontSize: "1rem",
+  },
   title: {
     ...defaultFont,
     letterSpacing: "unset",
@@ -76,6 +82,9 @@ const headerStyle = () => ({
     backgroundColor: dangerColor[0],
     color: whiteColor,
     ...defaultBoxShadow,
+  },
+  typography: {
+    fontSize: "3rem",
   },
 });
 
